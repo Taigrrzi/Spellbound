@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AmmoTypes;
 using FiringModes;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
@@ -13,12 +14,12 @@ public class Weapon : MonoBehaviour
 
 	private float multiplier;
 
-	private Ammunition ammoType;
+	private IAmmoType ammoType;
 	private IFiringMode firingMode;
 
 	public void Shoot()
 	{
-		Debug.Log("Bang!");
+		ammoType.Shoot();
 	}
 
 	public void WeaponPressed()
@@ -39,7 +40,8 @@ public class Weapon : MonoBehaviour
 	void Start()
 	{
 		firingMode = gameObject.AddComponent<FMCharge>().FMChargeInit(this, 1f, false, false);
-		
+		ammoType = gameObject.AddComponent<AConsoleBanger>();
+
 	}
 
 	void Update()

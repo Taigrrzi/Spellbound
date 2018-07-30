@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AmmoTypes;
 using UnityEngine;
 
-public class Ammunition : MonoBehaviour {
-	
-	
+public class AConsoleBanger : MonoBehaviour, IAmmoType {
 
 	// Use this for initialization
 	void Start () {
@@ -14,5 +13,10 @@ public class Ammunition : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void Shoot()
+	{
+		Debug.Log("BANG!");
 	}
 }
