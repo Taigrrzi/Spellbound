@@ -39,8 +39,9 @@ public class Weapon : MonoBehaviour
 
 	void Start()
 	{
-		firingMode = gameObject.AddComponent<FMCharge>().FMChargeInit(this, 1f, false, false);
-		ammoType = gameObject.AddComponent<AConsoleBanger>();
+		//firingMode = gameObject.AddComponent<FMCharge>().FMChargeInit(this, 1f, false, false);
+		firingMode = gameObject.AddComponent<FMAutomatic>().FMAutomaticInit(this, 0.2f);
+		ammoType = gameObject.AddComponent<AProjectile>().AProjectileInit("Projectiles/bullet",10f,10f);
 
 	}
 
