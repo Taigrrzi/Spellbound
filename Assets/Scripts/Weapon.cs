@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AmmoTypes;
+using SpellCasts;
 using FiringModes;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
@@ -10,27 +10,33 @@ public class Weapon : MonoBehaviour
 {
 
 	private int currentAmmo;
-	private int maxAmmo;
 
-	private float multiplier;
+	public int maxAmmo;
+    public bool automatic;
 
-	private IAmmoType ammoType;
+	private ISpellCast spellCast;
 	private IFiringMode firingMode;
 
 	public void Shoot()
 	{
-		ammoType.Shoot();
+        spellCast.Cast();
 	}
 
 	public void WeaponPressed()
 	{
-		firingMode.FirePressed();
+        if (automatic == false)
+        {
+            firingMode.AttemptFire();
+        }
 	}
 
 	public void WeaponDown()
 	{
-		firingMode.FireDown();
-	}
+        if (automatic == true)
+        {
+            firingMode.AttemptFire();
+        }
+    }
 
 	public void WeaponReleased()
 	{
@@ -39,10 +45,10 @@ public class Weapon : MonoBehaviour
 
 	void Start()
 	{
-		//firingMode = gameObject.AddComponent<FMCharge>().FMChargeInit(this, 1f, false, false);
-		firingMode = gameObject.AddComponent<FMAutomatic>().FMAutomaticInit(this, 0.2f);
-		ammoType = gameObject.AddComponent<AProjectile>().AProjectileInit("Projectiles/bullet",10f,10f);
-
+        //firingMode = gameObject.AddComponent<FMCharge>().FMChargeInit(this, 1f, false, automatic);
+        //firingMode = gameObject.AddComponent<FMSingleShot>().FMSingleShotInit(this, 0.2f);
+        firingMode = gameObject.AddComponent<FMBurstFire>().FMBurstFireInit(this, 0.5f, 3, 0.1f);
+        spellCast = gameObject.AddComponent<SCProjectile>().Init("Projectiles/bullet",10f,10f);
 	}
 
 	void Update()

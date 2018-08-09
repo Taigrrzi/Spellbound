@@ -24,7 +24,7 @@ namespace FiringModes
             return this;
         }
         
-        public void FirePressed()
+        public void AttemptFire()
         {
             if (Time.time - shotDelay > lastShot)
             {
@@ -32,8 +32,6 @@ namespace FiringModes
                 lastShot = Time.time;
             }
         }
-
-        public void FireDown(){}
         public void FireReleased(){}
 
         private IEnumerator BurstCoroutine()

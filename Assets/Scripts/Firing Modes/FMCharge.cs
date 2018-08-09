@@ -4,6 +4,8 @@ namespace FiringModes
 {
     public class FMCharge : MonoBehaviour, IFiringMode
     {
+        private bool charging;
+
         private Weapon weapon;
         private float chargeTime;
         private bool autoRelease;
@@ -18,23 +20,10 @@ namespace FiringModes
             this.earlyRelease = earlyRelease;
             return this;
         }
-        
-        public void FirePressed()
-        {
-            
-        }
 
-        public void FireDown()
+        public void AttemptFire()
         {
-            currentCharge += Time.deltaTime;
-            if (currentCharge >= chargeTime)
-            {
-                if (autoRelease)
-                {
-                    weapon.Shoot();
-                    currentCharge = 0;
-                }
-            }
+            charging = true;
         }
 
         public void FireReleased()
@@ -47,9 +36,25 @@ namespace FiringModes
                 //Do something to nerf damage
                 weapon.Shoot();
             }
-
+            charging = false;
             currentCharge = 0;
         }
-        
+
+        public void Update()
+        {
+            if (charging == true)
+            {
+                currentCharge += Time.deltaTime;
+                if (currentCharge >= chargeTime)
+                {
+                    if (autoRelease)
+                    {
+                        weapon.Shoot();
+                        currentCharge = 0;
+                    }
+                }
+            }
+        }
+
     }
 }

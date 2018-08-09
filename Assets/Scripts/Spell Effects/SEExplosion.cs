@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AmmoTypes;
 using UnityEngine;
+using SpellEffects;
 
-public class AConsoleBanger : MonoBehaviour, IAmmoType {
+public class SEExplosion : MonoBehaviour,ISpellEffect {
+
+    public float explosionSize;
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +15,5 @@ public class AConsoleBanger : MonoBehaviour, IAmmoType {
 	// Update is called once per frame
 	void Update () {
 		
-	}
-
-	public void Shoot()
-	{
-		Debug.Log("BANG!");
 	}
 }

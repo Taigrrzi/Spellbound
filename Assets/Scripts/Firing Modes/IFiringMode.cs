@@ -2,8 +2,7 @@
 {
     public interface IFiringMode
     {
-        void FirePressed();
-        void FireDown();
+        void AttemptFire();
         void FireReleased();
     }
 }
