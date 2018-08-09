@@ -1,16 +1,31 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SNProjectile : SpellNode
 {
-    private SpellNode contactSpell;
-    private SpellNode trailSpell;
+    float projSpeed;
+    float projSize;
+    UnityEngine.Sprite projSprite;
 
+    SpellNode contactSpell;
 
+    SpellNode trailSpell;
+    float trailDelay;
 
-    public SNProjectile(SpellNode contactSpell, SpellNode timeoutSpell = null, float timeoutTime = 0, SpellNode trail = null) : base(timeoutSpell, timeoutTime)
+    public SNProjectile(float projSpeed, float projSize, Sprite projSprite,
+        SpellNode timeoutSpell = null, float timeoutTime = 0,
+        SpellNode contactSpell = null, 
+        SpellNode trailSpell = null, float trailDelay = 0) : base(timeoutSpell,timeoutTime)
     {
-        
+        this.projSpeed = projSpeed;
+        this.projSize = projSize;
+        this.projSprite = projSprite;
+        this.contactSpell = contactSpell;
+        this.trailSpell = trailSpell;
+        this.trailDelay = trailDelay;
     }
+    
+    
 
     public override List<SpellNode> getSpecialChildren()
     {
