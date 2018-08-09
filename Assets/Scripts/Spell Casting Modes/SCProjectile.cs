@@ -5,7 +5,7 @@ using SpellCasts;
 using SpellEffects;
 using UnityEngine;
 
-public class SCProjectile : MonoBehaviour,ISpellCast
+public class SCProjectile : ScriptableObject, ISpellCast
 {
     private Weapon weapon;
     private Sprite sprite;

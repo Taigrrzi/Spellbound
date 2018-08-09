@@ -4,9 +4,9 @@ using SpellCasts;
 using SpellEffects;
 using UnityEngine;
 
-public class WorldController : MonoBehaviour{
+public class SpellController : MonoBehaviour{
 
-    public static WorldController main;
+    public static SpellController main;
 
 	// Use this for initialization
 	void Awake () {
@@ -23,6 +23,10 @@ public class WorldController : MonoBehaviour{
             default:
                 return new SPELLConsoleBanger();
         }
+    }
+
+    public void ApplySpell(ISpellCode spellNode, GameObject target) {
+       
     }
 
     public void CreateProjectile(Vector2 origin, Vector2 target, float lifeTime, ISpellEffect[] effects, Sprite sprite, float projectileSpeed)
