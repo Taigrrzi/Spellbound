@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using SpellCasts;
+using SpellInfo;
 using SpellEffects;
 using UnityEngine;
 
-public class SCProjectile : MonoBehaviour,ISpellCast
+public class SCProjectile : MonoBehaviour,ISpellNode
 {
     private Weapon weapon;
     private Sprite sprite;

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using SpellCasts;
+using SpellInfo;
 using UnityEngine;
 
-public class SCOnPlayer : MonoBehaviour, ISpellCast
+public class SCOnPlayer : MonoBehaviour, ISpellNode
 {
     private Weapon weapon;
     private Sprite sprite;

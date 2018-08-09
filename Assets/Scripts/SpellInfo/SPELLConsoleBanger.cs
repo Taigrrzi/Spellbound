@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using SpellCasts;
+using SpellInfo;
 using UnityEngine;
 
-public class SPELLConsoleBanger : MonoBehaviour, ISpellCast {
+public class SPELLConsoleBanger : MonoBehaviour, ISpellNode {
 
     private Weapon weapon;
     // Use this for initialization

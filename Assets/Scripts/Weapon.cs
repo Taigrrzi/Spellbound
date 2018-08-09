@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using SpellCasts;
+using SpellInfo;
 using FiringModes;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 	public int maxAmmo;
     public bool automatic;
 
-	private ISpellCast spellCast;
+	private ISpellNode spellCast;
 	private IFiringMode firingMode;
 
 	public void Shoot()
