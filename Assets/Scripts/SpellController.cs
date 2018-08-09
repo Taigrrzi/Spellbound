@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using SpellCasts;
 using SpellEffects;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class SpellController : MonoBehaviour{
         main = this;
 	}
 
-    public ISpellCast CreateFromCode(GameObject weapon,ISpellCode code) {
+    /*public ISpellCast CreateFromCode(GameObject weapon,ISpellCode code) {
         switch (code.getID())
         {
             case "SPELLProjectile":
@@ -23,10 +22,16 @@ public class SpellController : MonoBehaviour{
             default:
                 return new SPELLConsoleBanger();
         }
-    }
+    }*/
 
-    public void ApplySpell(ISpellCode spellNode, GameObject target) {
-       
+    public void CastSpell(SpellNode spellNode, GameEntity target, GameObject caster) {
+        switch (spellNode.GetType().ToString())
+        {
+            case "SNProjectile":
+                break;
+            default:
+                break;
+        }
     }
 
     public void CreateProjectile(Vector2 origin, Vector2 target, float lifeTime, ISpellEffect[] effects, Sprite sprite, float projectileSpeed)
